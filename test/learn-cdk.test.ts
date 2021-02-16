@@ -1,21 +1,13 @@
-import { expect as expectCDK, haveResource } from '@aws-cdk/assert';
+import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as LearnCdk from '../lib/learn-cdk-stack';
 
-test('SQS Queue Created', () => {
+test('Empty Stack', () => {
     const app = new cdk.App();
     // WHEN
     const stack = new LearnCdk.LearnCdkStack(app, 'MyTestStack');
     // THEN
-    expectCDK(stack).to(haveResource("AWS::SQS::Queue",{
-      VisibilityTimeout: 300
-    }));
-});
-
-test('SNS Topic Created', () => {
-  const app = new cdk.App();
-  // WHEN
-  const stack = new LearnCdk.LearnCdkStack(app, 'MyTestStack');
-  // THEN
-  expectCDK(stack).to(haveResource("AWS::SNS::Topic"));
+    expectCDK(stack).to(matchTemplate({
+      "Resources": {}
+    }, MatchStyle.EXACT))
 });
