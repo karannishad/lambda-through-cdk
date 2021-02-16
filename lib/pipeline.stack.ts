@@ -17,7 +17,6 @@ export class PipelineStack extends cdk.Stack {
             oauthToken: cdk.SecretValue.secretsManager("github-token"),
             actionName: "Source-Action",
             repo: "lambda-through-cdk",
-            branch: "main",
             owner: "karannishad",
             trigger: cpactions.GitHubTrigger.POLL
            }),
