@@ -6,6 +6,6 @@ import { PipelineStack } from '../lib/pipeline.stack';
 
 const app = new cdk.App();
 // const envMum = { region: 'ap-south-1' };
-new LearnCdkStack(app, 'LearnCdkStack');
+//new LearnCdkStack(app, 'LearnCdkStack');
 new PipelineStack(app,"PipelineStack");
 app.synth()
